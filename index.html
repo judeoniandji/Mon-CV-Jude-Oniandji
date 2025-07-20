@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Jude ONIANDJI</title>
+  <style>
+    :root {
+      --primary: #7f3fff;
+      --secondary: #f9f9f9;
+      --dark: #222;
+      --light: #fff;
+      --accent: #00e6d0;
+      --accent2: #ff4f81;
+      --accent3: #ffb300;
+      --grey: #e3e8ee;
+      --mono: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #7f3fff 0%, #00e6d0 50%, #ff4f81 100%);
+      color: var(--dark);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0;
+    }
+    .cv-container {
+      width: 100%;
+      max-width: 750px;
+      background: var(--light);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(127,63,255,0.13);
+      padding: 38px 28px 28px 28px;
+      margin: 48px 0 32px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent2);
+      box-shadow: 0 6px 32px rgba(255,79,129,0.13);
+      background: #eee;
+      margin-bottom: 10px;
+      margin-top: -70px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: block;
+    }
+    .profile-pic:hover {
+      box-shadow: 0 0 0 8px #ffb30055, 0 6px 32px rgba(255,79,129,0.18);
+      transform: scale(1.04) rotate(-2deg);
+    }
+    .cv-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .cv-header h1 {
+      color: var(--primary);
+      font-size: 2.3rem;
+      margin-bottom: 2px;
+      letter-spacing: 1px;
+      text-align: center;
+      font-family: var(--mono);
+    }
+    .badge-stage {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary) 60%, var(--accent2) 100%);
+      color: #fff;
+      font-weight: bold;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 8px rgba(10,116,218,0.08);
+      letter-spacing: 0.5px;
+      margin-top: 5px;
+      font-family: var(--mono);
+    }
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 8px;
+      font-size: 1.08rem;
+    }
+    .contact-list span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--accent2);
+      font-family: var(--mono);
+    }
+    .contact-list a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .socials {
+      display: flex;
+      gap: 18px;
+      margin: 10px 0 0 0;
+      justify-content: center;
+    }
+    .socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(10,116,218,0.10);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .socials a:hover {
+      background: var(--accent2);
+      color: #fff;
+      transform: scale(1.12);
+    }
+    .btn-download {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent2) 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+      margin: 0 auto 10px auto;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(127,63,255,0.13);
+      letter-spacing: 0.5px;
+      text-align: center;
+      font-family: var(--mono);
+    }
+    .btn-download:hover {
+      background: linear-gradient(90deg, var(--accent2) 0%, var(--primary) 100%);
+      color: #fff;
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,79,129,0.18);
+    }
+    .section-card {
+      background: linear-gradient(120deg, #f7fbff 80%, #e3e8ee 100%);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(127,63,255,0.06);
+      padding: 28px 22px 18px 22px;
+      margin-bottom: 8px;
+      width: 100%;
+      text-align: center;
+      font-family: var(--mono);
+    }
+    h2 {
+      color: var(--accent2);
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      transition: color 0.2s;
+      font-family: var(--mono);
+    }
+    h2::after {
+      content: '';
+      display: block;
+      margin: 8px auto 0 auto;
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent2) 100%);
+      opacity: 0.18;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .skill-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(90deg, #ffb30022 0%, #00e6d022 100%);
+      color: var(--primary);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 1px 4px rgba(10,116,218,0.08);
+      transition: background 0.2s, color 0.2s;
+      font-family: var(--mono);
+    }
+    .skill-chip img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #ffe3f0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+    .progress {
+      height: 100%;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent2) 50%, var(--accent3) 100%);
+      transition: width 1.2s cubic-bezier(.4,2,.6,1);
+    }
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .project-card {
+      background: linear-gradient(120deg, #fff 80%, #ffe3f0 100%);
+      border: 1.5px solid var(--accent2);
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(255,79,129,0.06);
+      padding: 18px 18px 12px 18px;
+      width: 100%;
+      max-width: 500px;
+      text-align: left;
+      font-family: var(--mono);
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 16px rgba(255,79,129,0.13);
+      border: 1.5px solid var(--accent3);
+    }
+    .project-title {
+      color: var(--accent3);
+      font-size: 1.08rem;
+      font-weight: bold;
+      margin-bottom: 2px;
+      font-family: var(--mono);
+    }
+    .project-tech {
+      font-size: 0.98em;
+      color: var(--accent2);
+      margin-bottom: 4px;
+      font-family: var(--mono);
+    }
+    .project-link {
+      color: var(--accent2);
+      text-decoration: underline;
+      font-size: 0.98em;
+      font-family: var(--mono);
+    }
+    ul {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+      text-align: center;
+      font-family: var(--mono);
+    }
+    ul li {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+      position: relative;
+    }
+    .timeline-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      position: relative;
+      width: 100%;
+    }
+    .exp-title {
+      color: var(--accent2);
+      font-weight: bold;
+      font-size: 1.08rem;
+      margin-bottom: 2px;
+      font-family: var(--mono);
+    }
+    .exp-type {
+      color: var(--accent3);
+      font-size: 0.98em;
+      font-weight: 400;
+      margin-left: 4px;
+      font-family: var(--mono);
+    }
+    .exp-company {
+      font-size: 1.01rem;
+      color: var(--primary);
+      margin-bottom: 3px;
+      font-family: var(--mono);
+    }
+    .exp-date {
+      color: var(--accent3);
+      font-size: 0.97em;
+      margin-left: 8px;
+      font-family: var(--mono);
+    }
+    .exp-desc {
+      color: var(--accent2);
+      font-size: 0.99rem;
+      margin-top: 2px;
+      font-family: var(--mono);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.1rem;
+      color: var(--accent2);
+      letter-spacing: 0.2px;
+      opacity: 0.85;
+      padding-bottom: 18px;
+      font-family: var(--mono);
+    }
+    .github-highlight {
+      display: flex;
+      justify-content: center;
+      margin: 32px 0 0 0;
+    }
+    .github-btn {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent2) 100%);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 1.13rem;
+      font-weight: bold;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(127,63,255,0.13);
+      letter-spacing: 0.5px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .github-btn:hover {
+      background: linear-gradient(90deg, var(--accent2) 0%, var(--primary) 100%);
+      color: #fff;
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,79,129,0.18);
+      text-decoration: underline;
+    }
+    .github-desc {
+      color: var(--accent2);
+      font-family: var(--mono);
+      font-size: 1.01rem;
+      margin-top: 8px;
+      text-align: center;
+    }
+    @media (max-width: 800px) {
+      .cv-container {
+        padding: 18px 2vw 18px 2vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .cv-container {
+        padding: 8px 1vw 8px 1vw;
+      }
+      .section-card {
+        padding: 12px 4px 8px 4px;
+      }
+      .profile-pic {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <img src="photo-profil.jpg" alt="Photo de Jude Oniandji" class="profile-pic">
+    <div class="cv-header">
+      <h1>Jude ONIANDJI</h1>
+      <div class="badge-stage">À la recherche d'un stage ou d'une alternance</div>
+      <div class="contact-list">
+        <span><svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a4 4 0 0 0-3-3.87"/><path d="M9 20H4v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/></svg> Dakar, Sénégal</span>
+        <span><svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.23.72 3.28a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.05.35 2.15.59 3.28.72A2 2 0 0 1 21 16.91z"/></svg>+221 77 356 9304</span>
+        <span><svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:judeoniandji55@gmail.com">judeoniandji55@gmail.com</a></span>
+        <span><svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 1 1-12 0 6 6 0 0 1 12 0z"/><path d="M2 20h12"/></svg><a href="https://github.com/judeoniandji" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/judeoniandji" target="_blank" title="GitHub"><svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 7.43c.85.004 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56v5.62z"/></svg></a>
+      </div>
+    </div>
+    <section class="section-card">
+      <h2>Profil</h2>
+      <p>
+        Développeur Front-End Junior passionné par le web et les technologies modernes. 
+        Spécialisé en HTML, CSS, PHP, MySQL et intégration de maquettes (Figma → Code). 
+        En apprentissage continu de frameworks comme Bootstrap, Tailwind et React.
+      </p>
+    </section>
+    <section class="section-card">
+      <h2>Lettre de motivation</h2>
+      <p style="text-align: left; max-width: 650px; margin: 0 auto; font-size:1.08em;">
+        Passionné par le développement web et les nouvelles technologies, je souhaite mettre mes compétences et ma motivation au service d’une équipe dynamique. Curieux, rigoureux et toujours prêt à apprendre, je suis à la recherche d’une opportunité de stage ou d’alternance pour approfondir mes connaissances, relever de nouveaux défis et contribuer activement à des projets concrets.<br><br>
+        Je suis convaincu que mon sérieux, ma capacité d’adaptation et mon envie de progresser seront des atouts pour réussir et m’intégrer rapidement.<br><br>
+        Je reste à votre disposition pour toute information complémentaire ou un entretien.
+      </p>
+    </section>
+    <section class="section-card">
+      <h2>Compétences Techniques</h2>
+      <div class="skills">
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">HTML</div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">CSS</div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">PHP</div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">MySQL</div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">JavaScript (bases)</div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">Python <span style='font-size:0.93em;color:var(--accent2);'>(en cours d'amélioration)</span></div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress">WordPress</div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">GitHub</div>
+        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">Intégration de maquettes</div>
+      </div>
+      <div style="margin-top:18px;">
+        <div>HTML <div class="progress-bar"><div class="progress" style="width:95%"></div></div></div>
+        <div>CSS <div class="progress-bar"><div class="progress" style="width:90%"></div></div></div>
+        <div>PHP <div class="progress-bar"><div class="progress" style="width:80%"></div></div></div>
+        <div>MySQL <div class="progress-bar"><div class="progress" style="width:75%"></div></div></div>
+        <div>JavaScript <div class="progress-bar"><div class="progress" style="width:60%"></div></div></div>
+        <div>Python <div class="progress-bar"><div class="progress" style="width:40%"></div></div><span style='font-size:0.93em;color:var(--accent2);'>(en cours d'amélioration)</span></div>
+        <div>WordPress <div class="progress-bar"><div class="progress" style="width:70%"></div></div></div>
+        <div>GitHub <div class="progress-bar"><div class="progress" style="width:80%"></div></div></div>
+        <div>Figma <div class="progress-bar"><div class="progress" style="width:65%"></div></div></div>
+      </div>
+    </section>
+    <section class="section-card">
+      <h2>Formations</h2>
+      <ul>
+        <li><strong>Licence en Génie Logiciel</strong> – Digital Campus ISM, Dakar (2023-2025)</li>
+        <li><strong>Baccalauréat Professionnel en Gestion Administrative</strong> – Lycée Technique Agathe Obendze, Gabon (2019-2022)</li>
+      </ul>
+    </section>
+    <section class="section-card">
+      <h2>Expériences</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="exp-title">Technicien Informatique <span class="exp-type">(Stage)</span></div>
+          <div class="exp-company">Nouvelle Mélange, Gabon <span class="exp-date">2021</span></div>
+          <div class="exp-desc">Installation et maintenance, support technique et formation utilisateurs.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="exp-title">Community Manager <span class="exp-type">(Stage)</span></div>
+          <div class="exp-company">Exkeys Company, Rwanda <span class="exp-date">2021</span></div>
+          <div class="exp-desc">Gestion de contenus web et réseaux sociaux.</div>
+        </div>
+      </div>
+    </section>
+    <section class="section-card">
+      <h2>Certifications</h2>
+      <ul>
+        <li>IT Essentials – Cisco Networking Academy (2023)</li>
+      </ul>
+    </section>
+    <section class="section-card">
+      <h2>Langues</h2>
+      <ul>
+        <li>Français : Niveau professionnel</li>
+        <li>Anglais : Niveau scolaire</li>
+      </ul>
+    </section>
+    <div class="github-highlight">
+      <a href="https://github.com/judeoniandji/jude-Oniandji-film" target="_blank" class="github-btn">
+        <svg class="icon" fill="currentColor" viewBox="0 0 24 24" style="margin-right:8px;"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 7.43c.85.004 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+        <span>Voir mon projet GitHub : jude-Oniandji-film</span>
+      </a>
+      <div class="github-desc">Projet Python – Application de gestion de films</div>
+    </div>
+    <a class="btn-download" href="#" id="downloadCV">Télécharger mon CV en PDF</a>
+    <div class="footer">
+      &copy; 2025 Jude Oniandji - Développeur Front-End Junior
+    </div>
+  </div>
+  <script>
+    function handleDownloadCV(e) {
+      e.preventDefault();
+      if (confirm("Je suis actuellement à la recherche d'un stage ou d'une alternance. Voulez-vous vraiment télécharger mon CV ?")) {
+        const link = document.createElement('a');
+        link.href = 'cv-jude.pdf';
+        link.download = 'CV_Jude_ONIANDJI.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+    document.getElementById('downloadCV').addEventListener('click', handleDownloadCV);
+    document.getElementById('downloadCV-bottom').addEventListener('click', handleDownloadCV);
+
+    // Animation des barres de progression
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.progress').forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => { bar.style.width = width; }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
